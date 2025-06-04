@@ -77,11 +77,11 @@ btnNext.addEventListener('click',()=>{
         loadQuestion();
     }
     else{
-        container.innerHTML=`<div style="text-align:center; padding: 2rem; background-color: #fef6f9; border: 2px solid #654ea3; border-radius: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-    <h2 style="font-size: 2rem; color: #654ea3; margin-bottom: 0.5rem;">🎉 Quiz Completed!</h2>
-    <h3 style="font-size: 1.25rem; color: #444; margin-bottom: 1.5rem;">Your score is <span style="color:#d63384;">${score}</span> out of <span style="color:#654ea3;">${Qbank.length}</span></h3>
-    <p style="font-size: 1rem; color: #555; margin-bottom: 2rem;">Great job! You can take the quiz again to improve or test your memory.</p>
-    <button id="btnReload" onclick="location.reload()" style="padding: 0.75rem 2rem; font-size: 1rem; background-color: #654ea3; color: white; border: none; border-radius: 0.75rem; cursor: pointer; transition: background-color 0.3s ease;">
+        container.innerHTML=`<div style="max-width: 90%; width: 500px; margin: auto; text-align: center; padding: 1.5rem 1rem; background-color: #fef6f9; border: 2px solid #654ea3; border-radius: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+    <h2 style="font-size: 1.75rem; color: #654ea3; margin-bottom: 0.5rem;">🎉 Quiz Completed!</h2>
+    <h3 style="font-size: 1.1rem; color: #444; margin-bottom: 1.25rem;">Your score is <span style="color:#d63384;">${score}</span> out of <span style="color:#654ea3;">${Qbank.length}</span></h3>
+    <p style="font-size: 0.95rem; color: #555; margin-bottom: 1.5rem;">Great job! You can take the quiz again to improve or test your memory.</p>
+    <button id="btnReload" onclick="location.reload()" style="padding: 0.65rem 1.5rem; font-size: 1rem; background-color: #654ea3; color: white; border: none; border-radius: 0.75rem; cursor: pointer; transition: background-color 0.3s ease;">
         🔁 Take Again
     </button>
 </div>

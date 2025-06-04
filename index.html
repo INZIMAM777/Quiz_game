@@ -15,84 +15,116 @@
     align-items: center;
     background: linear-gradient(to right, #654ea3, #eaafc8);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+}
 
+#container {
+    width: 90%;
+    max-width: 600px;
+    background-color: #fffaf4;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+#Qbox {
+    font-size: 1.5rem;
+    color: #333;
+    padding-left: 0;
+    margin-bottom: 1rem;
+}
+
+#options {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.choice {
+    border: 2px solid #ddd;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    margin: 0.75rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.choice:hover {
+    border-color: #654ea3;
+    background-color: #ede3ff;
+}
+
+.option {
+    transform: scale(1.2);
+    accent-color: #654ea3;
+    cursor: pointer;
+}
+
+.optionText {
+    margin-left: 0.75rem;
+    font-size: 1.1rem;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+}
+
+#btnBox {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+#btnNext {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.75rem;
+    background-color: #654ea3;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#btnNext:hover {
+    background-color: #543c91;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #ccc;
+    margin: 1.5rem 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
     #container {
-        width: 90%;
-        max-width: 600px;
-        background-color: #fffaf4;
-        padding: 2rem;
-        border-radius: 1.25rem;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        padding: 1.25rem 1rem;
     }
 
     #Qbox {
-        font-size: 1.5rem;
-        color: #333;
-        padding-left: 0;
-        margin-bottom: 1rem;
-    }
-
-    #options {
-        margin-top: 1rem;
-        margin-bottom: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .choice {
-        border: 2px solid #ddd;
-        background-color: #f9f9f9;
-        display: flex;
-        align-items: center;
-        margin: 0.75rem 0;
-        padding: 0.75rem 1rem;
-        border-radius: 1.5rem;
-        transition: all 0.3s ease;
-    }
-
-    .choice:hover {
-        border-color: #654ea3;
-        background-color: #ede3ff;
+        padding: 0.5rem 0.75rem;
+        border-radius: 1rem;
     }
 
     .option {
-        transform: scale(1.2);
-        accent-color: #654ea3;
-        cursor: pointer;
+        transform: scale(1);
     }
 
     .optionText {
-        margin-left: 0.75rem;
-        font-size: 1.1rem;
-        color: #333;
-        cursor: pointer;
-        user-select: none;
-    }
-
-    #btnBox {
-        text-align: center;
-        margin-top: 1.5rem;
+        font-size: 1rem;
     }
 
     #btnNext {
-        padding: 0.75rem 2rem;
-        font-size: 1rem;
-        border: none;
-        border-radius: 0.75rem;
-        background-color: #654ea3;
-        color: white;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+        width: 100%;
+        padding: 0.75rem 0;
+        font-size: 1.1rem;
+        border-radius: 1rem;
     }
+}
 
-    #btnNext:hover {
-        background-color: #543c91;
-    }
-
-    hr {
-        border: none;
-        border-top: 2px solid #ccc;
-        margin: 1.5rem 0;
-    }
 
 </style>
 
