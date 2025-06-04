@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+</head>
+<style>
+    body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #654ea3, #eaafc8);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #container {
+        width: 90%;
+        max-width: 600px;
+        background-color: #fffaf4;
+        padding: 2rem;
+        border-radius: 1.25rem;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    #Qbox {
+        font-size: 1.5rem;
+        color: #333;
+        padding-left: 0;
+        margin-bottom: 1rem;
+    }
+
+    #options {
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .choice {
+        border: 2px solid #ddd;
+        background-color: #f9f9f9;
+        display: flex;
+        align-items: center;
+        margin: 0.75rem 0;
+        padding: 0.75rem 1rem;
+        border-radius: 1.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .choice:hover {
+        border-color: #654ea3;
+        background-color: #ede3ff;
+    }
+
+    .option {
+        transform: scale(1.2);
+        accent-color: #654ea3;
+        cursor: pointer;
+    }
+
+    .optionText {
+        margin-left: 0.75rem;
+        font-size: 1.1rem;
+        color: #333;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    #btnBox {
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+
+    #btnNext {
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 0.75rem;
+        background-color: #654ea3;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #btnNext:hover {
+        background-color: #543c91;
+    }
+
+    hr {
+        border: none;
+        border-top: 2px solid #ccc;
+        margin: 1.5rem 0;
+    }
+
+</style>
+
+<body>
+    <div id="container">
+        <div id="Qbox">
+            <h1 id="Hq">1.This is question area</h1>
+        </div>
+        <hr>
+        <div id="options">
+            <div class="choice">
+                <input id="option1" name="option" class="option" type="radio">
+                <label for="option1" id="a1" class="optionText">This is the option</label>
+            </div>
+            <div class="choice">
+                <input id="option2" name="option" class="option" type="radio">
+                <label for="option2" id="a2" class="optionText">This is the option</label>
+            </div>
+            <div class="choice">
+                <input id="option3" name="option" class="option" type="radio">
+                <label for="option3" id="a3" class="optionText">This is the option</label>
+            </div>
+            <div class="choice">
+                <input id="option4" name="option" class="option" type="radio">
+                <label for="option4" id="a4" class="optionText">This is the option</label>
+            </div>
+        </div>
+        <hr>
+        <div id="btnBox">
+            <button id="btnNext">Submit</button>
+        </div>
+    </div>
+    <script src="Quiz.js"></script>
+</body>
+
+</html>
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<style>
+    :root {
+        --primary: #654ea3;
+        --secondary: #eaafc8;
+        --correct: #4CAF50;
+        --incorrect: #F44336;
+        --text: #333;
+        --light: #f8f9fa;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, var(--secondary), var(--primary));
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text);
+    }
+
+    #container {
+        width: 90%;
+        max-width: 50rem;
+        background-color: white;
+        padding: 2.5rem;
+        border-radius: 1.5rem;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+    }
+
+    #Qbox {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #question-number {
+        font-size: 0.9rem;
+        color: var(--primary);
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    #Hq {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+    }
+
+    #options {
+        margin: 1.5rem 0;
+    }
+
+    .choice {
+        border: 2px solid #e0e0e0;
+        margin: 1rem 0;
+        padding: 1rem 1.5rem;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .choice:hover {
+        border-color: var(--primary);
+        transform: translateY(-2px);
+        box-shadow: 0 2px 8px rgba(101, 78, 163, 0.2);
+    }
+
+    .choice.selected {
+        border-color: var(--primary);
+        background-color: rgba(101, 78, 163, 0.05);
+    }
+
+    .choice.correct {
+        border-color: var(--correct);
+        background-color: rgba(76, 175, 80, 0.1);
+    }
+
+    .choice.incorrect {
+        border-color: var(--incorrect);
+        background-color: rgba(244, 67, 54, 0.1);
+    }
+
+    .option {
+        display: flex;
+        align-items: center;
+        margin-right: 1rem;
+    }
+
+    .option input {
+        opacity: 0;
+        position: absolute;
+    }
+
+    .custom-radio {
+        width: 1.25rem;
+        height: 1.25rem;
+        border: 2px solid #ccc;
+        border-radius: 50%;
+        margin-right: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.2s ease;
+    }
+
+    .choice.selected .custom-radio {
+        border-color: var(--primary);
+    }
+
+    .choice.selected .custom-radio::after {
+        content: '';
+        width: 0.75rem;
+        height: 0.75rem;
+        background-color: var(--primary);
+        border-radius: 50%;
+    }
+
+    .choice.correct .custom-radio {
+        border-color: var(--correct);
+    }
+
+    .choice.correct .custom-radio::after {
+        background-color: var(--correct);
+    }
+
+    .choice.incorrect .custom-radio {
+        border-color: var(--incorrect);
+    }
+
+    .choice.incorrect .custom-radio::after {
+        background-color: var(--incorrect);
+    }
+
+    .optionText {
+        font-size: 1.1rem;
+        flex: 1;
+    }
+
+    #progress-container {
+        width: 100%;
+        height: 0.5rem;
+        background-color: #e0e0e0;
+        border-radius: 0.25rem;
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+    }
+
+    #progress-bar {
+        height: 100%;
+        background: linear-gradient(to right, var(--secondary), var(--primary));
+        width: 0%;
+        transition: width 0.5s ease;
+    }
+
+    #btnBox {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    #btnNext {
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 0.5rem;
+        background-color: var(--primary);
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        flex: 1;
+        max-width: 200px;
+        margin-left: auto;
+    }
+
+    #btnNext:hover {
+        background-color: #543c91;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(101, 78, 163, 0.3);
+    }
+
+    #btnNext:active {
+        transform: translateY(0);
+    }
+
+    #btnNext:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+
+    #score-display {
+        font-size: 1rem;
+        color: var(--primary);
+        font-weight: bold;
+    }
+
+    #result-container {
+        text-align: center;
+        padding: 2rem;
+    }
+
+    #result-container h2 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-size: 2rem;
+    }
+
+    #result-container h3 {
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+    }
+
+    #btnReload {
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 0.5rem;
+        background-color: var(--primary);
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+    }
+
+    #btnReload:hover {
+        background-color: #543c91;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(101, 78, 163, 0.3);
+    }
+
+    .feedback {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        color: white;
+        font-weight: bold;
+        box-shadow: var(--shadow);
+        z-index: 100;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .feedback.show {
+        opacity: 1;
+    }
+
+    .feedback.correct {
+        background-color: var(--correct);
+    }
+
+    .feedback.incorrect {
+        background-color: var(--incorrect);
+    }
+
+    @media (max-width: 768px) {
+        #container {
+            padding: 1.5rem;
+        }
+
+        #Hq {
+            font-size: 1.3rem;
+        }
+
+        .choice {
+            padding: 0.75rem 1rem;
+        }
+
+        .optionText {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<body>
+    <div id="container">
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        <div id="Qbox">
+            <div id="question-number">Question <span id="current-q">1</span> of <span id="total-q">5</span></div>
+            <h1 id="Hq">This is question area</h1>
+        </div>
+        <div id="options">
+            <div class="choice" data-index="0">
+                <div class="option">
+                    <input id="option1" name="option" class="option" type="radio">
+                    <span class="custom-radio"></span>
+                </div>
+                <label for="option1" id="a1" class="optionText">This is the option</label>
+            </div>
+            <div class="choice" data-index="1">
+                <div class="option">
+                    <input id="option2" name="option" class="option" type="radio">
+                    <span class="custom-radio"></span>
+                </div>
+                <label for="option2" id="a2" class="optionText">This is the option</label>
+            </div>
+            <div class="choice" data-index="2">
+                <div class="option">
+                    <input id="option3" name="option" class="option" type="radio">
+                    <span class="custom-radio"></span>
+                </div>
+                <label for="option3" id="a3" class="optionText">This is the option</label>
+            </div>
+            <div class="choice" data-index="3">
+                <div class="option">
+                    <input id="option4" name="option" class="option" type="radio">
+                    <span class="custom-radio"></span>
+                </div>
+                <label for="option4" id="a4" class="optionText">This is the option</label>
+            </div>
+        </div>
+        <div id="btnBox">
+            <div id="score-display">Score: <span id="score">0</span></div>
+            <button id="btnNext" disabled>Submit</button>
+        </div>
+    </div>
+
+    <div id="feedback" class="feedback"></div>
+
+    <script>
+        let Qbank = [{
+            question: "What is the color of blood?",
+            options: ['Red', 'Green', 'Yellow', 'Blue'],
+            correct: 0
+        },
+        {
+            question: "What is the color of the sky?",
+            options: ['Red', 'Green', 'Yellow', 'Blue'],
+            correct: 3
+        },
+        {
+            question: "What is the color of grass?",
+            options: ['Red', 'Green', 'Yellow', 'Blue'],
+            correct: 1
+        },
+        {
+            question: "What is the color of sun?",
+            options: ['Red', 'Green', 'Yellow', 'Blue'],
+            correct: 2
+        },
+        {
+            question: "What is the color of banana?",
+            options: ['Red', 'Green', 'Yellow', 'Blue'],
+            correct: 2
+        }];
+
+        // Selecting elements
+        let choices = document.querySelectorAll('.choice');
+        let radioInputs = document.querySelectorAll('.option input');
+        let questionElement = document.querySelector('#Hq');
+        let optionTexts = document.querySelectorAll('.optionText');
+        let btnNext = document.querySelector('#btnNext');
+        let container = document.querySelector('#container');
+        let currentQ = 0;
+        let score = 0;
+        let selectedOption = null;
+        let feedback = document.querySelector('#feedback');
+        let progressBar = document.querySelector('#progress-bar');
+        let currentQElement = document.querySelector('#current-q');
+        let totalQElement = document.querySelector('#total-q');
+        let scoreDisplay = document.querySelector('#score');
+
+        // Initialize quiz
+        const initQuiz = () => {
+            totalQElement.textContent = Qbank.length;
+            updateProgressBar();
+            loadQuestion();
+        };
+
+        // Load question
+        const loadQuestion = () => {
+            const que = Qbank[currentQ];
+            questionElement.innerText = que.question;
+            currentQElement.textContent = currentQ + 1;
+            
+            que.options.forEach((option, index) => {
+                optionTexts[index].innerText = option;
+                choices[index].classList.remove('selected', 'correct', 'incorrect');
+                radioInputs[index].checked = false;
+            });
+            
+            btnNext.disabled = true;
+            selectedOption = null;
+        };
+
+        // Update progress bar
+        const updateProgressBar = () => {
+            const progress = ((currentQ) / Qbank.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        };
+
+        // Show feedback
+        const showFeedback = (isCorrect) => {
+            feedback.textContent = isCorrect ? 'Correct! 🎉' : 'Incorrect! 😢';
+            feedback.className = `feedback ${isCorrect ? 'correct' : 'incorrect'} show`;
+            
+            setTimeout(() => {
+                feedback.classList.remove('show');
+            }, 1500);
+        };
+
+        // Event listeners for choices
+        choices.forEach(choice => {
+            choice.addEventListener('click', () => {
+                // Remove selected class from all choices
+                choices.forEach(c => c.classList.remove('selected'));
+                
+                // Add selected class to clicked choice
+                choice.classList.add('selected');
+                
+                // Mark the radio input as checked
+                const index = choice.getAttribute('data-index');
+                radioInputs[index].checked = true;
+                selectedOption = parseInt(index);
+                
+                // Enable submit button
+                btnNext.disabled = false;
+            });
+        });
+
+        // Submit answer
+        btnNext.addEventListener('click', () => {
+            if (selectedOption === null) return;
+            
+            // Check if answer is correct
+            const isCorrect = selectedOption === Qbank[currentQ].correct;
+            
+            if (isCorrect) {
+                score++;
+                scoreDisplay.textContent = score;
+                showFeedback(true);
+            } else {
+                showFeedback(false);
+            }
+            
+            // Highlight correct and incorrect answers
+            choices.forEach(choice => {
+                const index = parseInt(choice.getAttribute('data-index'));
+                if (index === Qbank[currentQ].correct) {
+                    choice.classList.add('correct');
+                } else if (index === selectedOption && !isCorrect) {
+                    choice.classList.add('incorrect');
+                }
+            });
+            
+            // Disable submit button during feedback
+            btnNext.disabled = true;
+            
+            // Move to next question after delay
+            setTimeout(() => {
+                currentQ++;
+                if (currentQ < Qbank.length) {
+                    loadQuestion();
+                    updateProgressBar();
+                } else {
+                    showResults();
+                }
+            }, 1500);
+        });
+
+        // Show results
+        const showResults = () => {
+            container.innerHTML = `
+                <div id="result-container">
+                    <h2>Quiz Completed!</h2>
+                    <h3>Your score is ${score} out of ${Qbank.length}</h3>
+                    <div style="margin: 2rem 0; font-size: 4rem;">
+                        ${score === Qbank.length ? '🏆' : 
+                          score >= Qbank.length * 0.7 ? '🎉' : 
+                          score >= Qbank.length * 0.5 ? '👍' : '😢'}
+                    </div>
+                    <button id="btnReload">Take Again</button>
+                </div>
+            `;
+            
+            document.querySelector('#btnReload').addEventListener('click', () => {
+                location.reload();
+            });
+        };
+
+        // Initialize the quiz
+        initQuiz();
+    </script>
+</body>
+
+</html> -->
